@@ -1,0 +1,38 @@
+### Create a new user
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "username": "johndoe",
+  "password": "12345"
+}
+
+### Create a new user
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "firstName": "Mia",
+  "lastName": "Sani",
+  "username": "miasani",
+  "password": "12345"
+}
+
+### Requesting a  user
+GET http://localhost:8080/users/1
+
+### Requesting a  user
+DELETE http://localhost:8080/users/1
+
+### Requesting all user
+GET http://localhost:8080/users
+
+### Update only the first name of a user
+PUT http://localhost:8080/users/4
+Content-Type: application/json
+
+{
+  "firstName": "Alicia"
+}

@@ -1,13 +1,12 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const NotesPage = () => {
+  const {userId} = useParams();
+
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Users Page</h1>
-      <ul>
-        <li>Test Note 1</li>
-        <li>Test Note 2</li>
-      </ul>
+    <div>
+      <h1>Notes for user {userId}</h1>
     </div>
   );
 };

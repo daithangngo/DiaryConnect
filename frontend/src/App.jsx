@@ -2,17 +2,17 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "./app/store";
-import UsersPage from "./pages/UsersPage";
-import NotesPage from "./pages/NotesPage";
+import { store } from "./redux/store";
+import NotesPage from "./components/UserNoteCard/NotesPage";
+import AppOwnerPage from "./pages/AppOwnerPage";
+import LoginRegistation from "./components/RegistrationForm";
 
 const App = () => {
   return (
     <Provider store={store}>
       <Router>
         <header style={{ padding: 20, borderBottom: "1px solid #ddd", backgroundColor: '#f5f5f5' }}>
-          <Link 
-            to="/users" 
+          <h1 
             style={{ 
               textDecoration: 'none', 
               fontSize: '1.2rem', 
@@ -20,15 +20,16 @@ const App = () => {
               color: '#333'
             }}
           >
-          Diary App - Users
-          </Link>
+          DiaryGram
+          </h1>
         </header>
 
         <main>
           <Routes>
-            <Route path="/users" element={<UsersPage />} />
+            <Route path="users/owner/" element={<AppOwnerPage />} />
             <Route path="/users/:userId/notes" element={<NotesPage />} />
-            <Route path="*" element={<UsersPage />} />
+            <Route path="users/login" element={<LoginRegistation/>}/>
+            <Route path="*" element={<LoginRegistation/>} />
           </Routes>
         </main>
       </Router>

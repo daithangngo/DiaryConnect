@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers, createUser, deleteUser } from "../features/users/userSlice";
+import { fetchUsers, deleteUser } from "../redux/slices/userSlice";
 import { Link } from "react-router-dom";
 
 const UsersPage = () => {
@@ -9,47 +9,10 @@ const UsersPage = () => {
   // Get state from redux store
   const { list, loading, error } = useSelector((state) => state.users);
 
-  // Local state for creating a new user
-  const [form, setForm] = useState({
-    firstName: "",
-    lastName: "",
-    username: "",
-    password: "",
-  });
-
   // Load users when component mounts
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
-
-  // Handle form submission (creating user)
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      // Dispatch createUser thunk
-      await dispatch(createUser(form)).unwrap();
-      // Clear form 
-      setForm({
-        firstName: "",
-        lastName: "",
-        username: "",
-        password: "",
-      });
-      // Refresh the users list
-      dispatch(fetchUsers());
-    } catch (err) {
-      alert("Error creating user: " + err.message);
-    }
-  };
-
-  // Handle input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setForm(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
 
   // Handle user deletion
   const handleDelete = (id) => {
@@ -73,52 +36,7 @@ const UsersPage = () => {
       <h1>Users Management</h1>
       
       {/* Create User Form */}
-      <form onSubmit={handleSubmit} style={{ marginBottom: 30, padding: 20, border: '1px solid #ccc' }}>
-        <h3>Create New User</h3>
-        <div style={{ marginBottom: 10 }}>
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First Name"
-            value={form.firstName}
-            onChange={handleInputChange}
-            required
-            style={{ marginRight: 10, padding: 5 }}
-          />
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last Name"
-            value={form.lastName}
-            onChange={handleInputChange}
-            required
-            style={{ marginRight: 10, padding: 5 }}
-          />
-        </div>
-        <div style={{ marginBottom: 10 }}>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={form.username}
-            onChange={handleInputChange}
-            required
-            style={{ marginRight: 10, padding: 5 }}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={form.password}
-            onChange={handleInputChange}
-            required
-            style={{ marginRight: 10, padding: 5 }}
-          />
-        </div>
-        <button type="submit" style={{ padding: '5px 15px' }}>
-          Create User
-        </button>
-      </form>
+      <Link to={"/users/login"}>Register new User</Link>
 
       {/* Users List */}
       <div>

@@ -3,9 +3,9 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import NotesPage from "./components/UserNoteCard/PostsPage";
 import AppOwnerPage from "./pages/AppOwnerPage";
 import LoginRegistation from "./components/RegistrationForm";
+import PostsPage from "./components/UserProfilePage/PostsPage"
 
 const App = () => {
   return (
@@ -27,7 +27,7 @@ const App = () => {
         <main>
           <Routes>
             <Route path="users/owner" element={<AppOwnerPage />} />
-            <Route path="/users/:userId/posts" element={<NotesPage />} />
+            <Route path="/users/:userId/posts" element={<PostsPage/>} />
             <Route path="users/login" element={<LoginRegistation/>}/>
             <Route path="*" element={<LoginRegistation/>} />
           </Routes>

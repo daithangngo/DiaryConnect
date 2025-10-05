@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import restApi.demo.entity.Note;
 
 import java.util.List;
 
@@ -27,5 +26,5 @@ public class User {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Note> notes;
+    private List<Post> posts;
 }

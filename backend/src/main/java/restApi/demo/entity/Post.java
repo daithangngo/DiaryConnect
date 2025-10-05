@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "notes")
+@Table(name = "posts")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Note {
+public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,7 +23,7 @@ public class Note {
     @JoinColumn(name = "user_id",  nullable = false)
     private User user;
 
-    private String noteTitle;
+    private String postTitle;
     private String content;
 
     private LocalDateTime createdAt;

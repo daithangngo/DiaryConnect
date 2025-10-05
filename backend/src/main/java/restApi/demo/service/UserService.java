@@ -76,7 +76,7 @@ public class UserService {
                 user.getFirstName(),
                 user.getLastName(),
                 user.getUsername(),
-                user.getNotes()
+                user.getPosts()
         );
     }
 }

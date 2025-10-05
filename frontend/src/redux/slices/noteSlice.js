@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import noteApi from "../../api/noteApi";
+import noteApi from "../../api/postApi";
 
 // Fetch notes for a user
 export const fetchNotes = createAsyncThunk("notes/fetchByUser", async (userId) => {

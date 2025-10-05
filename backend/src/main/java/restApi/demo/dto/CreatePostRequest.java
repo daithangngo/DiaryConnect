@@ -1,5 +1,4 @@
 package restApi.demo.dto;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,7 +6,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateNoteRequest {
-    private String noteTitle;
+public class CreatePostRequest {
+    private Long userId;
+    private String postTitle;
     private String content;
 }

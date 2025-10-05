@@ -3,7 +3,7 @@ package restApi.demo.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import restApi.demo.entity.Note;
+import restApi.demo.entity.Post;
 
 import java.util.List;
 
@@ -15,5 +15,5 @@ public class UserResponse {
     private String firstName;
     private String lastName;
     private String username;
-    private List<Note> notes;
+    private List<Post> posts;
 }

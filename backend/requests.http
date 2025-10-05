@@ -36,3 +36,17 @@ Content-Type: application/json
 {
   "firstName": "Alicia"
 }
+
+
+### Create a note for a user
+POST http://localhost:8080/users/10/posts
+Content-Type: application/json
+
+{
+  "postTitle": "A Great Day",
+  "content": "Today was a great day I feel awesome"
+}
+
+### Get all notes of a user
+GET http://localhost:8080/users/10/posts
+Content-Type: application/json

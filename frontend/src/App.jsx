@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import NotesPage from "./components/UserNoteCard/NotesPage";
+import NotesPage from "./components/UserNoteCard/PostsPage";
 import AppOwnerPage from "./pages/AppOwnerPage";
 import LoginRegistation from "./components/RegistrationForm";
 
@@ -26,8 +26,8 @@ const App = () => {
 
         <main>
           <Routes>
-            <Route path="users/owner/" element={<AppOwnerPage />} />
-            <Route path="/users/:userId/notes" element={<NotesPage />} />
+            <Route path="users/owner" element={<AppOwnerPage />} />
+            <Route path="/users/:userId/posts" element={<NotesPage />} />
             <Route path="users/login" element={<LoginRegistation/>}/>
             <Route path="*" element={<LoginRegistation/>} />
           </Routes>
